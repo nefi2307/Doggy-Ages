@@ -1,7 +1,9 @@
 package com.example.doggyages
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.os.Message
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -20,6 +22,7 @@ import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
@@ -57,6 +60,7 @@ class MainActivity : ComponentActivity() {
                 color = MaterialTheme.colorScheme.background
                 ) {
                     imageDoggy()
+
                 }
                 }
             }
@@ -83,8 +87,9 @@ fun ButtonAge(modifier: Modifier = Modifier)
 {
     //Button(onClick = { /* Do something! */ })  { Text("¡Convert you age!") }
     Button(
-        onClick = { /* Do something! */ },
-        contentPadding = ButtonDefaults.ButtonWithIconContentPadding,
+        onClick = {
+
+        },
         modifier = Modifier
             .padding(
                 start = 12.dp,
@@ -102,7 +107,7 @@ fun ButtonAge(modifier: Modifier = Modifier)
     }
 }
 
-// TextField
+// TextFields
 @Composable
 fun TextFieldWithIcons() {
     var text by remember { mutableStateOf(TextFieldValue("")) }
@@ -119,6 +124,21 @@ fun TextFieldWithIcons() {
     )
 }
 
+@Composable
+fun TextFieldAgeDog()
+{
+    var text by remember { mutableStateOf(TextFieldValue("")) }
+    return OutlinedTextField(
+        value = text,
+        leadingIcon = { Icon(imageVector = Icons.Default.FavoriteBorder, contentDescription = "iconAgeHuman")},
+        keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+        onValueChange = {
+            text = it
+        },
+        label = {Text(text="Would you rather doggy ages?")},
+        placeholder = {Text(text= "Hi")}
+    )
+}
 // Preview
 @Preview(showBackground = true)
 @Composable
