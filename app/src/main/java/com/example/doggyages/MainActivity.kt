@@ -63,14 +63,6 @@ class MainActivity : ComponentActivity() {
         }
     }
 
-
-@Composable
-fun buttonAge()
-{
-
-}
-
-
 // Titulo
 @Composable
 fun Title(modifier: Modifier = Modifier) {
@@ -155,7 +147,6 @@ fun imageDoggy(modifier:Modifier = Modifier)
         Title()
         TextFieldWithIcons()
         ButtonAge()
-
 
     }
 
